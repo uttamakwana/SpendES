@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    /* - - Base Options - - */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "forceConsistentCasingInFileNames": true,
+
+    /* - - Strictness - - */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* - - Node Options - - */
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "lib": ["es2022"],
+
+    /* - - Path Aliases - - */
+    "baseUrl": "./",
+    "paths": {
+      "@domain/entities": ["./src/domain/entities/index.ts"],
+      "@application/usecases": ["./src/application/usecases/index.ts"],
+      "@infrastructure/models": ["./src/infrastructure/models/index.ts"],
+      "@routes": ["./src/routes/index.ts"],
+      "@controllers": ["./src/controllers/index.ts"],
+      "@constants": ["./src/constants/index.ts"],
+      "@utils": ["./src/utils/index.ts"],
+      "@types": ["./src/types/index.ts"],
+      "@services": ["./src/services/index.ts"],
+      "@middlewares": ["./src/middlewares/index.ts"],
+      "@config": ["./src/config/index.ts"],
+      "@enums": ["./src/enums/index.ts"]
+    },
+
+    /* - - Additional Options - - */
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": true, // Fail build on TypeScript errors
+    "declaration": true, // Generate .d.ts files
+    "declarationMap": true, // Source map for declarations
+    "incremental": true, // Enable incremental builds
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": ["./src/**/*"],
+  "exclude.ts": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}
