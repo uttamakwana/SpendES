@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "CommonJs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "src",
+    "paths": {
+      "@domain/entities/*": ["domain/entities/*"],
+      "@domain/interfaces/*": ["domain/interfaces/*"],
+      "@domain/services/*": ["domain/services/*"],
+
+      "@data/repositories/*": ["data/repositories/*"],
+      "@data/services/*": ["data/services/*"],
+      "@data/schemas/*": ["data/schemas/*"],
+      "@data/models/*": ["data/models/*"],
+
+      "@infrastructure/configs/*": ["infrastructure/configs/*"],
+      "@infrastructure/databases/*": ["infrastructure/databases/*"],
+      "@infrastructure/middlewares/*": ["infrastructure/middlewares/*"],
+
+      "@interface-adapters/controllers/*": ["interface-adapters/controllers/*"],
+      "@interface-adapters/dtos/*": ["interface-adapters/dtos/*"],
+      "@interface-adapters/routes/*": ["interface-adapters/routes/*"],
+
+      "@shared/utils/*": ["shared/utils/*"],
+      "@shared/validations/*": ["shared/validations/*"],
+
+      "@usecases/*": ["usecases/*"]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
