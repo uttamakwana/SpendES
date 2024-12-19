@@ -1,32 +1,21 @@
-import { InversifyExpressServer } from 'inversify-express-utils';
 import express from "express";
+import "dotenv/config";
 import helmet from 'helmet';
 import cors from "cors";
-import { container } from '@infrastructure/configs/container';
 
-class App {
- private server!: InversifyExpressServer;
- constructor() {
-  this.initializeServer();
- }
+// VARIABLES
+const app = express();
+const PORT = process.env.PORT || 8080;
 
- private initializeServer() {
-  this.server = new InversifyExpressServer(container);
+// MIDDLEWARES
+app.use(express.json());
+app.use(helmet());
+app.use(cors());
 
-  this.server.setConfig((app) => {
-   app.use(helmet());
-   app.use(cors());
-   app.use(express.json());
-  })
- }
- public listen() {
-  const app = this.server.build();
-  const port = process.env.PORT || 3000;
-  app.listen(port, () => {
-   console.log(`Server started on http://localhost:${port}`);
-  })
- }
-}
+// ROUTES
+app.use("/api/v1/users", userRouter);
 
-const app = new App();
-app.listen();
+// SERVER
+app.listen(PORT, () => {
+ console.log(`Server started on http://localhost:${PORT}`);
+})
