@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "0.0.1",
   "main": "dist/main/index.js",
+  "type": "module",
   "scripts": {
     "start": "node dist/main/index.js",
     "start:dev": "nodemon src/main/index.ts",
