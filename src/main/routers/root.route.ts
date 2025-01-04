@@ -1,6 +1,12 @@
-import { createUser } from "@main/controllers/user/user.controller";
 import { Router } from "express";
+import { userRouter } from "./user.router";
 
 export const rootRouter = Router();
 
-rootRouter.post("/user", createUser)
+// health check route
+rootRouter.get("/health", (req, res) => {
+    res.send("API working successfully!");
+})
+
+// user router
+rootRouter.use("/users", userRouter)

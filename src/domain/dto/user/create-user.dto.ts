@@ -4,4 +4,4 @@ import { TCreateUserRequest } from "@domain/validations/user/create-user.validat
 
 export interface ICreateUserRequestDto extends TCreateUserRequest { };
 
-export type ICreateUserResponseDto = IUserEntity;
+export type ICreateUserResponseDto = Omit<IUserEntity, "password" | "pin">;

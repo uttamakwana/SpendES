@@ -1,4 +1,4 @@
-import { USER_MODEL } from "@constants/global.constant"
+import { USER_MODEL } from "@shared/constants/global.constant";
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
