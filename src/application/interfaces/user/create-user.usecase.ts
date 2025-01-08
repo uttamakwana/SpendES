@@ -10,7 +10,7 @@ export class CreateUserUsecase {
 
     async create(input: TCreateUserRequest): Promise<ICreateUserResponseDto> {
         const parsedInput = createUserSchema.parse(input);
-        const createdUser = this.userRepo.create(parsedInput);
+        const createdUser = this.userRepo.createUser(parsedInput);
         return createdUser;
     }
 }

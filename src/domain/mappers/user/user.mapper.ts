@@ -4,7 +4,7 @@ import { IUserEntity } from "@domain/entities/user.entity";
 
 @injectable()
 export class UserMapper {
-    toDto(entity: ): ICreateUserResponseDto {
+    toDto(entity: IUserEntity): ICreateUserResponseDto {
         return {
             id: entity.id.toString(),
             name: entity.name,

@@ -6,12 +6,12 @@ import { ErrorHandler } from "@main/middlewares/error-handler.middleware";
 
 @injectable()
 export class UserMongodbRepository implements IUserRepository {
-    async create(data: ICreateUserRequestDto): Promise<ICreateUserResponseDto> {
-        const user = await UserModel.findOne({ email: data.email })
+    async createUser(userData: ICreateUserRequestDto): Promise<ICreateUserResponseDto> {
+        const user = await UserModel.findOne({ email: userData.email })
         if (user) {
             throw new ErrorHandler("User already exists!", "BAD_REQUEST");
         }
-        const createdUser = await UserModel.create(data);
+        const createdUser = await UserModel.create(userData);
 
         return {
             id: createdUser._id.toString(),
