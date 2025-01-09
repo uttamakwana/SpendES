@@ -2,7 +2,6 @@ import { CreateUserUsecase } from "@application/interfaces/user/create-user.usec
 import { ICreateUserRequestDto } from "@domain/dto/user/create-user.dto";
 import { UserMongodbRepository } from "@infrastructure/repositories/user/user.mongodb.repository";
 import { asyncHandler } from "@shared/utils/async-handler";
-import { Request, Response } from "express-serve-static-core";
 
 export const createUser = asyncHandler(async (req, res, next) => {
     const userRepository = new UserMongodbRepository();

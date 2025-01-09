@@ -1,4 +1,5 @@
-import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
+import { Request, Response, NextFunction, ErrorRequestHandler } from "express-serve-static-core";
+import z from "zod";
 
 // Define STATUS_CODE with strong typing
 export const STATUS_CODE = {
@@ -39,8 +40,23 @@ export const errorHandler: ErrorRequestHandler = (
     const message = err.message || "Internal Server Error!";
     const statusCode = err.statusCode || STATUS_CODE.INTERNAL_SERVER_ERROR;
 
+    if (err instanceof z.ZodError) {
+        handleZodError(err, res);
+        return;
+    }
+
     res.status(statusCode).json({
         success: false,
         message,
     });
 };
+
+
+function handleZodError(error: z.ZodError, res: Response) {
+    const errors = error.issues.map(err => ({
+        path: err.path.join(", "),
+        message: err.message
+    }))
+
+    return res.status(STATUS_CODE.BAD_REQUEST).json({ message: error.message, errors })
+}

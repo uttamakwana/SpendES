@@ -12,20 +12,21 @@ export class UserMongodbRepository implements IUserRepository {
             throw new ErrorHandler("User already exists!", "BAD_REQUEST");
         }
         const createdUser = await UserModel.create(userData);
+        const { _id, name, email, contact, avatar, refreshToken, isActive, preferences, createdAt, updatedAt } = createdUser;
 
         return {
-            id: createdUser._id.toString(),
-            name: createdUser.name,
-            email: createdUser.email,
-            contact: createdUser.contact,
-            avatar: createdUser.avatar || "",
-            refreshToken: createdUser.refreshToken || "",
-            isActive: createdUser.isActive,
+            id: _id.toString(),
+            name,
+            email,
+            contact,
+            avatar: avatar || "",
+            refreshToken: refreshToken || "",
+            isActive: isActive,
             preferences: {
-                reminder: createdUser.preferences?.reminder || null,
+                reminder: preferences?.reminder || null,
             },
-            createdAt: createdUser.createdAt,
-            updatedAt: createdUser.updatedAt,
+            createdAt,
+            updatedAt,
         };
     }
 }
