@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { EXPENSE_MODEL, REF_ID, USER_MODEL } from '@constants';
-import { CategoryEnum } from '@enums';
+import { EXPENSE_MODEL, REF_ID, USER_MODEL } from '../constants/global.constant.js';
+import { CategoryEnum } from '../enums/category.enum.js';
 
 const ExpenseSchema = new mongoose.Schema({
  amount: {
@@ -16,10 +16,10 @@ const ExpenseSchema = new mongoose.Schema({
   ref: USER_MODEL,
   required: [true, "Created by is required!"]
  },
- category: {
-  type: CategoryEnum,
-  default: CategoryEnum.Personal
- },
+//  category: {
+//   type: CategoryEnum,
+//   default: CategoryEnum.Personal
+//  },
  isSettled: {
   type: Boolean,
   default: false,

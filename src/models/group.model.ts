@@ -1,4 +1,4 @@
-import { EXPENSE_MODEL, GROUP_MODEL, REF_ID, USER_MODEL } from '@constants';
+import { EXPENSE_MODEL, GROUP_MODEL, REF_ID, USER_MODEL } from '@constants/global.constant.js';
 import mongoose from "mongoose";
 
 const GroupSchema = new mongoose.Schema({

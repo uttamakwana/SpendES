@@ -1,14 +1,16 @@
-import { USER_MODEL } from '@constants';
+import { USER_MODEL } from "../constants/global.constant.js";
 import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Name is required!"]
+        required: [true, "Name is required!"],
+        minLength: [2, "Name must be at least 2 characters!"],
+        trim: true
     },
     email: {
         type: String,
         required: [true, "Email is required!"],
-        unique: [true, "Email must be unique!"]
+        unique: [true, "Email must be unique!"],
     },
     contact: {
         type: Number,
@@ -20,6 +22,7 @@ const UserSchema = new mongoose.Schema({
         // required: [true, "Password is required!"],
         minLength: [6, "Password must be at least 6 characters!"],
         maxLength: [20, "Password can't be greater than 20 characters!"],
+        trim: true,
     },
     pin: {
         type: Number,
@@ -36,5 +39,5 @@ const UserSchema = new mongoose.Schema({
         reminder: Date
     }
 }, { timestamps: true });
-export const User = mongoose.model(USER_MODEL, UserSchema);
+export const UserModel = mongoose.model(USER_MODEL, UserSchema);
 //# sourceMappingURL=user.model.js.map

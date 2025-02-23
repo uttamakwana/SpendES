@@ -1,103 +1,37 @@
 import mongoose from "mongoose";
-export declare const User: mongoose.Model<{
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
+type TUserModal = mongoose.Document & {
     name: string;
     email: string;
-    contact: number;
-    pin: number;
+    contact: string;
+    password: string;
+    pin: string;
+    avatar: string;
+    refreshToken: string;
     isActive: boolean;
-    avatar?: string | null | undefined;
-    refreshToken?: string | null | undefined;
-    password?: string | null | undefined;
-    preferences?: {
-        reminder?: NativeDate | null | undefined;
-    } | null | undefined;
-}, {}, {}, {}, mongoose.Document<unknown, {}, {
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
+    preferences: {
+        reminder: Date;
+    };
+    createdAt: Date;
+    updatedAt: Date;
+};
+export declare const UserModel: mongoose.Model<TUserModal, {}, {}, {}, mongoose.Document<unknown, {}, TUserModal> & mongoose.Document<unknown, any, any> & {
     name: string;
     email: string;
-    contact: number;
-    pin: number;
+    contact: string;
+    password: string;
+    pin: string;
+    avatar: string;
+    refreshToken: string;
     isActive: boolean;
-    avatar?: string | null | undefined;
-    refreshToken?: string | null | undefined;
-    password?: string | null | undefined;
-    preferences?: {
-        reminder?: NativeDate | null | undefined;
-    } | null | undefined;
+    preferences: {
+        reminder: Date;
+    };
+    createdAt: Date;
+    updatedAt: Date;
+} & Required<{
+    _id: unknown;
 }> & {
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    name: string;
-    email: string;
-    contact: number;
-    pin: number;
-    isActive: boolean;
-    avatar?: string | null | undefined;
-    refreshToken?: string | null | undefined;
-    password?: string | null | undefined;
-    preferences?: {
-        reminder?: NativeDate | null | undefined;
-    } | null | undefined;
-} & {
-    _id: mongoose.Types.ObjectId;
-} & {
     __v: number;
-}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, {
-    timestamps: true;
-}, {
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    name: string;
-    email: string;
-    contact: number;
-    pin: number;
-    isActive: boolean;
-    avatar?: string | null | undefined;
-    refreshToken?: string | null | undefined;
-    password?: string | null | undefined;
-    preferences?: {
-        reminder?: NativeDate | null | undefined;
-    } | null | undefined;
-}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    name: string;
-    email: string;
-    contact: number;
-    pin: number;
-    isActive: boolean;
-    avatar?: string | null | undefined;
-    refreshToken?: string | null | undefined;
-    password?: string | null | undefined;
-    preferences?: {
-        reminder?: NativeDate | null | undefined;
-    } | null | undefined;
-}>> & mongoose.FlatRecord<{
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    name: string;
-    email: string;
-    contact: number;
-    pin: number;
-    isActive: boolean;
-    avatar?: string | null | undefined;
-    refreshToken?: string | null | undefined;
-    password?: string | null | undefined;
-    preferences?: {
-        reminder?: NativeDate | null | undefined;
-    } | null | undefined;
-}> & {
-    _id: mongoose.Types.ObjectId;
-} & {
-    __v: number;
-}>>;
+}, any>;
+export {};
 //# sourceMappingURL=user.model.d.ts.map

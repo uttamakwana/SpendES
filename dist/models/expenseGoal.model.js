@@ -1,5 +1,5 @@
-import { EXPENSE_GOAL_MODEL, REF_ID, USER_MODEL } from '@constants';
-import { ExpenseGoalStatus } from '@enums';
+import { EXPENSE_GOAL_MODEL, REF_ID, USER_MODEL } from '@constants/global.constant.js';
+import { ExpenseGoalStatus } from '@enums/expenseGoal.enum.js';
 import mongoose from "mongoose";
 const ExpenseGoalSchema = new mongoose.Schema({
     createdBy: {

@@ -4,46 +4,46 @@ export declare const ExpenseGoal: mongoose.Model<{
     updatedAt: NativeDate;
 } & {
     goalAmount: number;
+    createdBy?: mongoose.Types.ObjectId | null | undefined;
     startDate?: NativeDate | null | undefined;
     endDate?: NativeDate | null | undefined;
     totalExpense?: number | null | undefined;
     goalStatus?: {
-        OnTrack?: unknown;
         Exceeded?: unknown;
+        OnTrack?: unknown;
         BelowTrack?: unknown;
     } | null | undefined;
     note?: string | null | undefined;
-    createdBy?: mongoose.Types.ObjectId | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
     goalAmount: number;
+    createdBy?: mongoose.Types.ObjectId | null | undefined;
     startDate?: NativeDate | null | undefined;
     endDate?: NativeDate | null | undefined;
     totalExpense?: number | null | undefined;
     goalStatus?: {
-        OnTrack?: unknown;
         Exceeded?: unknown;
+        OnTrack?: unknown;
         BelowTrack?: unknown;
     } | null | undefined;
     note?: string | null | undefined;
-    createdBy?: mongoose.Types.ObjectId | null | undefined;
 }> & {
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
     goalAmount: number;
+    createdBy?: mongoose.Types.ObjectId | null | undefined;
     startDate?: NativeDate | null | undefined;
     endDate?: NativeDate | null | undefined;
     totalExpense?: number | null | undefined;
     goalStatus?: {
-        OnTrack?: unknown;
         Exceeded?: unknown;
+        OnTrack?: unknown;
         BelowTrack?: unknown;
     } | null | undefined;
     note?: string | null | undefined;
-    createdBy?: mongoose.Types.ObjectId | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 } & {
@@ -55,46 +55,46 @@ export declare const ExpenseGoal: mongoose.Model<{
     updatedAt: NativeDate;
 } & {
     goalAmount: number;
+    createdBy?: mongoose.Types.ObjectId | null | undefined;
     startDate?: NativeDate | null | undefined;
     endDate?: NativeDate | null | undefined;
     totalExpense?: number | null | undefined;
     goalStatus?: {
-        OnTrack?: unknown;
         Exceeded?: unknown;
+        OnTrack?: unknown;
         BelowTrack?: unknown;
     } | null | undefined;
     note?: string | null | undefined;
-    createdBy?: mongoose.Types.ObjectId | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
     goalAmount: number;
+    createdBy?: mongoose.Types.ObjectId | null | undefined;
     startDate?: NativeDate | null | undefined;
     endDate?: NativeDate | null | undefined;
     totalExpense?: number | null | undefined;
     goalStatus?: {
-        OnTrack?: unknown;
         Exceeded?: unknown;
+        OnTrack?: unknown;
         BelowTrack?: unknown;
     } | null | undefined;
     note?: string | null | undefined;
-    createdBy?: mongoose.Types.ObjectId | null | undefined;
 }>> & mongoose.FlatRecord<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
     goalAmount: number;
+    createdBy?: mongoose.Types.ObjectId | null | undefined;
     startDate?: NativeDate | null | undefined;
     endDate?: NativeDate | null | undefined;
     totalExpense?: number | null | undefined;
     goalStatus?: {
-        OnTrack?: unknown;
         Exceeded?: unknown;
+        OnTrack?: unknown;
         BelowTrack?: unknown;
     } | null | undefined;
     note?: string | null | undefined;
-    createdBy?: mongoose.Types.ObjectId | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 } & {

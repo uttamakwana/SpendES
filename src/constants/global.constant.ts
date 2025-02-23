@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+export const SALT_ROUNDS = 10;
+
 // MODEL NAMES
 export const USER_MODEL = "User";
 export const FRIEND_MODEL = "Friend";
@@ -10,3 +12,5 @@ export const EXPENSE_GOAL_MODEL = "ExpenseGoal";
 
 // REF ID
 export const REF_ID = mongoose.Schema.Types.ObjectId;
+
+export const refreshTokenPath = "/api/v1/auth/refresh";

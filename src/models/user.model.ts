@@ -1,4 +1,4 @@
-import { USER_MODEL } from '@constants';
+import { USER_MODEL } from "../constants/global.constant.js";
 import mongoose from "mongoose";
 
 type TUserModal = mongoose.Document & {
@@ -57,5 +57,5 @@ const UserSchema = new mongoose.Schema({
  }
 }, { timestamps: true });
 
-export const UserModel = mongoose.model(USER_MODEL
+export const UserModel = mongoose.model<TUserModal>(USER_MODEL
  , UserSchema);

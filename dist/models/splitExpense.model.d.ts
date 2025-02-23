@@ -3,8 +3,8 @@ export declare const SplitExpense: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
-    amount: number;
     description: string;
+    amount: number;
     isSettled: boolean;
     expenseId?: mongoose.Types.ObjectId | null | undefined;
     splittedFor?: mongoose.Types.ObjectId | null | undefined;
@@ -12,8 +12,8 @@ export declare const SplitExpense: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
-    amount: number;
     description: string;
+    amount: number;
     isSettled: boolean;
     expenseId?: mongoose.Types.ObjectId | null | undefined;
     splittedFor?: mongoose.Types.ObjectId | null | undefined;
@@ -21,8 +21,8 @@ export declare const SplitExpense: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
-    amount: number;
     description: string;
+    amount: number;
     isSettled: boolean;
     expenseId?: mongoose.Types.ObjectId | null | undefined;
     splittedFor?: mongoose.Types.ObjectId | null | undefined;
@@ -36,8 +36,8 @@ export declare const SplitExpense: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
-    amount: number;
     description: string;
+    amount: number;
     isSettled: boolean;
     expenseId?: mongoose.Types.ObjectId | null | undefined;
     splittedFor?: mongoose.Types.ObjectId | null | undefined;
@@ -45,8 +45,8 @@ export declare const SplitExpense: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
-    amount: number;
     description: string;
+    amount: number;
     isSettled: boolean;
     expenseId?: mongoose.Types.ObjectId | null | undefined;
     splittedFor?: mongoose.Types.ObjectId | null | undefined;
@@ -54,8 +54,8 @@ export declare const SplitExpense: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {
-    amount: number;
     description: string;
+    amount: number;
     isSettled: boolean;
     expenseId?: mongoose.Types.ObjectId | null | undefined;
     splittedFor?: mongoose.Types.ObjectId | null | undefined;

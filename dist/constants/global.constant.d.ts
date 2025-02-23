@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+export declare const SALT_ROUNDS = 10;
 export declare const USER_MODEL = "User";
 export declare const FRIEND_MODEL = "Friend";
 export declare const EXPENSE_MODEL = "Expense";

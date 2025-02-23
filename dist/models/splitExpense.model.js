@@ -1,4 +1,4 @@
-import { EXPENSE_MODEL, REF_ID, SPLIT_EXPENSE_MODEL, USER_MODEL } from '@constants';
+import { EXPENSE_MODEL, REF_ID, SPLIT_EXPENSE_MODEL, USER_MODEL } from '@constants/global.constant.js';
 import mongoose from 'mongoose';
 const SplitExpenseSchema = new mongoose.Schema({
     expenseId: {
