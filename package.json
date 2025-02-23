@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "ts-node-dev --files -r tsconfig-paths/register src/index.ts index.d.ts",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
     "clean": "rimraf dist",
-    "build": "npm run clean && tsc --project tsconfig.json",
+    "build": "npm run clean && tsc",
     "build:start": "npm run build && npm start",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint .",
     "format": "prettier --write ."
   },
   "keywords": [],
@@ -26,10 +26,7 @@
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
-    "nodemon": "^3.1.9",
     "prettier": "^3.4.1",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.2"
   },
   "dependencies": {
@@ -42,14 +39,6 @@
     "zod": "^3.24.2"
   },
   "_moduleAliases": {
-    "@": "dist",
-    "@controllers": "dist/controllers",
-    "@schemas": "dist/schemas",
-    "@models": "dist/models",
-    "@routes": "dist/routes",
-    "@constants": "dist/constants",
-    "@utils": "dist/utils",
-    "@services": "dist/services",
-    "@configs": "dist/configs"
+    "@": "./dist"
   }
 }
