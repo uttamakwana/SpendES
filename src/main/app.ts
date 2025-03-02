@@ -8,7 +8,7 @@ import { connectToDatabase } from "@infrastructure/database/mongodb.database";
 import { rootRouter } from "@main/routers/root.route";
 import { errorHandler } from "@main/middlewares/error-handler.middleware";
 import { CONFIG } from "@shared/config/env";
-import { logger } from "@shared/utils/logger";
+import { logger } from "@shared/utils/logger.util";
 
 export class App {
     public express: Application;
@@ -63,7 +63,6 @@ export class App {
     // Start the Express server
     private start() {
         this.express.listen(CONFIG.PORT, () => {
-            // console.log(`Server started on http://localhost:${CONFIG.PORT}`);
             logger.info(`Server started on http://localhost:${CONFIG.PORT}`)
         });
     }

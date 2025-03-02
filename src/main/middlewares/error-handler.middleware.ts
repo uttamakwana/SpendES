@@ -1,30 +1,15 @@
+import { TStatusCode, TStatusCodeValue } from "@shared/config/http.config";
+import { STATUS_CODE } from "@shared/constants/http.constant";
 import { Request, Response, NextFunction, ErrorRequestHandler } from "express-serve-static-core";
 import z from "zod";
-
-// Define STATUS_CODE with strong typing
-export const STATUS_CODE = {
-    OK: 200,
-    CREATED: 201,
-    BAD_REQUEST: 400,
-    UNAUTHORIZED: 401,
-    FORBIDDEN: 403,
-    NOT_FOUND: 404,
-    CONFLICT: 409,
-    UNPROCESSABLE_CONTENT: 422,
-    TOO_MANY_REQUESTS: 429,
-    INTERNAL_SERVER_ERROR: 500,
-} as const;
-
-type TStatusCode = keyof typeof STATUS_CODE;
-type TStatusCodeValue = (typeof STATUS_CODE)[TStatusCode];
 
 // Custom ErrorHandler class
 export class ErrorHandler extends Error {
     public statusCode: TStatusCodeValue;
 
-    constructor(message: string, statusCode: TStatusCode = "INTERNAL_SERVER_ERROR") {
+    constructor(message: string, statusCode: TStatusCodeValue = 500) {
         super(message);
-        this.statusCode = STATUS_CODE[statusCode];
+        this.statusCode = statusCode;
         Object.setPrototypeOf(this, new.target.prototype); // Maintain proper prototype chain
         Error.captureStackTrace(this, this.constructor); // Capture the stack trace
     }

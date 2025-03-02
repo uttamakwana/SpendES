@@ -4,15 +4,10 @@ import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Name is required!"],
         minLength: [2, "Name must be at least 2 characters!"],
         trim: true
     },
-    email: {
-        type: String,
-        required: [true, "Email is required!"],
-        unique: [true, "Email must be unique!"],
-    },
+    email: String,
     contact: {
         type: Number,
         required: [true, "Contact is required!"],
@@ -20,21 +15,22 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, "Password is required!"],
         minLength: [6, "Password must be at least 6 characters!"],
         maxLength: [20, "Password can't be greater than 20 characters!"],
         trim: true,
     },
     pin: {
         type: Number,
-        required: [true, "Pin is required!"],
         length: 4,
     },
     avatar: String,
-    refreshToken: String,
     isActive: {
         type: Boolean,
         default: true,
+    },
+    isVerified: {
+        type: Boolean,
+        default: false,
     },
     preferences: {
         reminder: Date

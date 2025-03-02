@@ -2,6 +2,6 @@ import { IUserEntity } from "@domain/entities/user.entity"
 import { TCreateUserRequest } from "@domain/validations/user/create-user.validation";
 
 
-export interface ICreateUserRequestDto extends TCreateUserRequest { };
+export type TVerifyAndCreateUserRequestDto = TCreateUserRequest;
 
-export type ICreateUserResponseDto = Omit<IUserEntity, "password" | "pin">;
+export type TVerifyAndCreateUserResponseDto = void;
