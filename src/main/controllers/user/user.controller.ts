@@ -1,6 +1,6 @@
-import { CreateUserUsecase } from "@application/interfaces/user/verify-and-create-user.usecase";
-import { SendOtpUsecase } from "@application/interfaces/user/send-otp.usecase";
-import { UserAuthUsecase } from "@application/interfaces/user/user-auth.usecase";
+import { CreateUserUsecase } from "@application/usecases/user/verify-and-create-user.usecase";
+import { SendOtpUsecase } from "@application/usecases/user/send-otp.usecase";
+import { UserAuthUsecase } from "@application/usecases/user/user-auth.usecase";
 import { UserMongodbRepository } from "@infrastructure/repositories/user/user.mongodb.repository";
 import { STATUS_CODE } from "@shared/config/http.config";
 import { asyncHandler } from "@shared/utils/async-handler.util";

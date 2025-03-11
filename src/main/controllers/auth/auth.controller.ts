@@ -1,4 +1,4 @@
-import { RefreshAccessTokenUsecase } from "@application/interfaces/auth/refresh-access-token.usecase";
+import { RefreshAccessTokenUsecase } from "@application/usecases/auth/refresh-access-token.usecase";
 import { AuthMongodbRepository } from "@infrastructure/repositories/auth/auth.mongodb.repository";
 import { STATUS_CODE } from "@shared/config/http.config";
 import { asyncHandler } from "@shared/utils/async-handler.util";
