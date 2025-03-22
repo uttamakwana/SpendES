@@ -1,7 +1,25 @@
 import { USER_MODEL } from "@shared/constants/global.constant";
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 
-const UserSchema = new mongoose.Schema({
+export type TUser = {
+    _id: Types.ObjectId;
+    name: string | undefined;
+    email: string | undefined;
+    contact: number;
+    password: string | undefined;
+    pin: number | undefined;
+    avatar: string | undefined;
+    isActive: boolean;
+    isVerified: boolean;
+    preferences: {
+        reminder: Date;
+    } | undefined,
+    createdAt: Date;
+    updatedAt: Date
+}
+type UserDocument = TUser & mongoose.Document;
+
+const UserSchema = new mongoose.Schema<UserDocument>({
     name: {
         type: String,
         minLength: [2, "Name must be at least 2 characters!"],

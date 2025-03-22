@@ -15,6 +15,9 @@ import { fifteenMinutesFromNow } from "@shared/utils/date.util";
 import { generateOtp } from "@shared/utils/otp.util";
 import { TLoginUserResponseDto, TRegisterUserRequestDto, TRegisterUserResponseDto } from "@domain/dto/user/user-auth.dto";
 import { TLoginUserRequest } from "@domain/validations/user/user-auth.validation";
+import { TGetUserInfoRequestDto, TGetUserInfoResponseDto } from "@domain/dto/user/get-user-info.dto";
+import { TUpdateUserInfoRequestDto, TUpdateUserInfoResponseDto } from "@domain/dto/user/update-user-info.dto";
+import { TCheckContactsRequestDto, TCheckContactsResponseDto } from "@domain/dto/user/check-contacts.dto";
 
 type TUserss = { name: string } | undefined;
 
@@ -117,5 +120,62 @@ export class UserMongodbRepository implements IUserRepository {
             refreshToken,
             accessToken
         }
+    }
+
+    async getUserInfo(userId: TGetUserInfoRequestDto): Promise<TGetUserInfoResponseDto> {
+        // check if user exist or not
+        const user = await UserModel.findById(userId);
+        customAssert(user, STATUS_CODE.BAD_REQUEST, "User not exists!");
+
+        const { isActive, isVerified, preferences, contact, email, name } = user;
+        return {
+            id: user._id.toString(),
+            contact,
+            email: email || "",
+            name: name || "",
+            isActive,
+            isVerified,
+            preferences: preferences
+        }
+    }
+
+    async updateUserInfo(data: TUpdateUserInfoRequestDto): Promise<TUpdateUserInfoResponseDto> {
+        // check if user exist or not
+        const user = await UserModel.findById(data.id);
+        customAssert(user, STATUS_CODE.BAD_REQUEST, "User not exists!");
+
+        user.name = data.name;
+        await user.save();
+
+        const { isActive, isVerified, preferences, contact, email, name } = user;
+        return {
+            id: user._id.toString(),
+            contact,
+            email: email || "",
+            name: data.name || "",
+            isActive,
+            isVerified,
+            preferences: preferences
+        }
+    }
+
+    async checkContacts(data: TCheckContactsRequestDto): Promise<TCheckContactsResponseDto> {
+        // check if user exist or not
+        const user = await UserModel.findById(data.id);
+        customAssert(user, STATUS_CODE.BAD_REQUEST, "User not exists!");
+
+        //check register user in database and set array of it
+        const registerContacts = await UserModel.find({
+            contact: { $in : data.contacts,
+                $nin:[user.contact]
+             }
+        },{
+            _id:1,
+            name:1,
+            contact:1
+        }).lean<TCheckContactsResponseDto>();
+
+        return registerContacts
+
     }
 }

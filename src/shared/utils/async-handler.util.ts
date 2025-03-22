@@ -10,7 +10,7 @@ interface ITypedResponse<T> extends Response {
     json: (body?: TApiResponse<T>) => this;
 }
 
-type AsyncController<T = void> = (req: Request, res: ITypedResponse<T>, next: NextFunction) => Promise<T>;
+type AsyncController<T = void> = (req: Request, res: ITypedResponse<T>, next: NextFunction) => Promise<void>;
 
 export function asyncHandler<T = void>(controller: AsyncController<T>): (req: Request, res: Response, next: NextFunction) => Promise<void> {
     return async (req, res, next) => {

@@ -2,6 +2,7 @@ import { Router } from "express";
 import { userRouter } from "./user.router";
 import { authRouter } from "./auth.router";
 import { expenseRouter } from "./expense.route";
+import { splitExpensesRouter } from "./split-expense.route";
 
 export const rootRouter = Router();
 
@@ -16,3 +17,5 @@ rootRouter.use("/auth", authRouter);
 rootRouter.use("/users", userRouter)
 // expense router
 rootRouter.use("/expenses", expenseRouter);
+// split-expense router
+rootRouter.use("/split-expenses", splitExpensesRouter);
