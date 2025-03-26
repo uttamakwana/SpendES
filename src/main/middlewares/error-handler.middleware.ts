@@ -12,7 +12,7 @@ export class ErrorHandler extends Error {
     constructor(message: string, statusCode: TStatusCodeValue = 500, errorCode?: ErrorCode) {
         super(message);
         this.statusCode = statusCode;
-        this.errorCode = errorCode;
+        this.errorCode = errorCode || ErrorCode.InvalidRequest;
         Object.setPrototypeOf(this, new.target.prototype); // Maintain proper prototype chain
         Error.captureStackTrace(this, this.constructor); // Capture the stack trace
     }
@@ -27,18 +27,22 @@ export const errorHandler: ErrorRequestHandler = (
 ): void => {
     const message = err.message || "Internal Server Error!";
     const statusCode = err.statusCode || STATUS_CODE.INTERNAL_SERVER_ERROR;
-    const errorCode = err.errorCode || "";
+    const errorCode = err.errorCode || ErrorCode.InvalidRequest;
 
     if (err instanceof z.ZodError) {
         handleZodError(err, res);
         return;
     }
 
+    console.log("comes here 1")
+
     res.status(statusCode).json({
         success: false,
         message,
         ...(errorCode && { code: errorCode })
     });
+
+    console.log("comes here 2")
 };
 
 

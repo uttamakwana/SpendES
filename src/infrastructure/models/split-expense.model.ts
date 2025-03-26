@@ -1,16 +1,17 @@
 import { EXPENSE_MODEL, REF_ID, SPLIT_EXPENSE_MODEL, USER_MODEL } from "@shared/constants/global.constant";
 import mongoose, { Types } from "mongoose";
+import { TExpense } from "./expense.model";
 
-type TSplitExpense = {
+export type TSplitExpense = {
     _id: Types.ObjectId;
     expenseId: Types.ObjectId;
     splittedFor: Types.ObjectId;
     createdBy: Types.ObjectId;
-    amount: number;
-    description: string;
+    amount: TExpense["amount"];
+    description: TExpense["description"];
     createdAt: Date;
     updatedAt: Date;
-    isSettled: boolean;
+    isSettled: TExpense["isSettled"];
 }
 type TSplitExpenseDocument = mongoose.Document & TSplitExpense;
 
@@ -34,10 +35,7 @@ const SplitExpenseSchema = new mongoose.Schema<TSplitExpenseDocument>({
         type: Number,
         required: [true, "Amount is required"],
     },
-    description: {
-        type: String,
-        required: [true, "Description is required"]
-    },
+    description: String,
     isSettled: {
         type: Boolean,
         default: false

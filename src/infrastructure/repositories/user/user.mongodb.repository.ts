@@ -2,7 +2,6 @@ import { injectable } from "inversify";
 import { TVerifyAndCreateUserRequestDto, TVerifyAndCreateUserResponseDto } from "@domain/dto/user/create-user.dto"
 import { IUserRepository } from "@domain/repositories/user/user.repository";
 import { UserModel } from "@infrastructure/models/user.model";
-import { ErrorHandler } from "@main/middlewares/error-handler.middleware";
 import { customAssert } from "@shared/utils/custom-assert.util";
 import { STATUS_CODE } from "@shared/config/http.config";
 import { SessionModel } from "@infrastructure/models/session.model";

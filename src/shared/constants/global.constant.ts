@@ -9,6 +9,7 @@ export const GROUP_MODEL = "group";
 export const EXPENSE_GOAL_MODEL = "expense_goal";
 export const SESSION_MODEL = "session";
 export const VERFICATION_CODE_MODEL = "verification_code";
+export const SETTLE_EXPENSE_MODEL = "settle_expense";
 
 // PATH
 export const REFRESH_TOKEN_PATH = "http://localhost:4000/api/v1/auth/refresh";

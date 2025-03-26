@@ -6,7 +6,7 @@ export const createSplitExpenseSchema = z.object({
     amount: zAmountSchema,
     description: zDescriptionSchema,
     category: zCategorySchema.optional(),
-    splits: z.array(z.object({ userId: zIdSchema, amount: zAmountSchema, description: zDescriptionSchema }))
+    splits: z.array(z.object({ userId: zIdSchema, amount: zAmountSchema, description: zDescriptionSchema.optional() }))
 });
 
 export type TCreateSplitExpenseRequest = z.infer<typeof createSplitExpenseSchema>;

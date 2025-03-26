@@ -2,7 +2,8 @@ import mongoose, { Types } from "mongoose";
 import { EXPENSE_MODEL, REF_ID, USER_MODEL } from "@shared/constants/global.constant.js";
 import { CategoryEnum } from "@shared/constants/category.constant.js";
 
-type TExpense = {
+export type TExpense = {
+    _id: Types.ObjectId;
     amount: number;
     description: string;
     createdBy: Types.ObjectId;
